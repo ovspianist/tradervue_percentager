@@ -180,3 +180,4 @@ function changeDetailedData(){
 setTimeout(addControls, 100);
 
 // [$]-*\d+
+//
