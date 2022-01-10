@@ -9,7 +9,11 @@
 	"content_scripts":[
 		{
 			"run_at" : "document_idle",
-			"matches": ["https://www.tradervue.com/reports/overview*","https://www.tradervue.com/reports/detailed*","https://www.tradervue.com/reports/winloss*"],
+			"matches": ["https://www.tradervue.com/reports/overview*",
+				"https://www.tradervue.com/reports/detailed*",
+				"https://www.tradervue.com/reports/winloss*",
+				"https://www.tradervue.com/journal*",
+				"https://www.tradervue.com/trades*"],
 			"js":["percentager.js"]
 		}
 	],

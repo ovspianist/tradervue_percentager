@@ -52,7 +52,8 @@ function addControls(){
 
 	percexecbutton.style.setProperty("margin-left","20px","important");
 
-	let tabs = document.getElementById("report-tabs");
+	let tabs = document.getElementById("filter_form");
+	//let tabs = document.getElementById("report-tabs");
 	tabs.insertAdjacentElement("beforebegin",percdiv);
 
 	//console.log(document.URL);
@@ -111,7 +112,7 @@ function changeDetailedData(){
 	let curr_url = document.URL;
 
 	let inCal = curr_url.includes("overview");
-	let inDetailed = curr_url.includes("detailed") || curr_url.includes("winloss");
+	let inDetailed = curr_url.includes("detailed") || curr_url.includes("winloss") || curr_url.includes("journal") || curr_url.includes("trades");
 
 	let allelements = [];
 
@@ -132,7 +133,7 @@ function changeDetailedData(){
 
 	
 	for (let elem of allelements){
-		if(reg.test(elem.innerHTML)==true){
+		if(reg.test( elem.innerHTML )==true){
 
 			if(rangereg.test(elem.innerHTML)==true){continue;}
 
@@ -144,10 +145,12 @@ function changeDetailedData(){
 				otherinfo = "<br>"+elem.innerHTML.split("<br>",2)[1];
 
 			}else if(inDetailed==true){
-				original = elem.innerHTML.split(" ",1)[0];
-				currpl = Number( elem.innerHTML.replace(/[$,]/g,'').split(" ",1)[0] );
+				original = elem.innerHTML.trim().split(" ",1)[0];
+				
+				currpl = Number( elem.innerHTML.trim().replace(/[$,]/g,'').split(" ",1)[0] );
+				console.log(currpl);
 
-				otherinfo = elem.innerHTML.replace(/[$,]/g,'').split(" ",2)[1];
+				otherinfo = elem.innerHTML.trim().replace(/[$,]/g,'').split(" ",2)[1];
 			}
 
 
