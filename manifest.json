@@ -1,0 +1,17 @@
+{
+	"name":"Percentager",
+	"version":"0.1",
+	"description":"Change TraderVue data to percentage.",
+	"browser_action":{
+		"default_title":"Percentager",
+		"default_popup":"percentager.html"
+	},
+	"content_scripts":[
+		{
+			"run_at" : "document_idle",
+			"matches": ["https://www.tradervue.com/reports/overview*","https://www.tradervue.com/reports/detailed*","https://www.tradervue.com/reports/winloss*"],
+			"js":["percentager.js"]
+		}
+	],
+	"manifest_version":2
+}
